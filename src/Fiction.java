@@ -1,36 +1,32 @@
 public class Fiction extends Book{
     
     private String genreId;
-    private String additionalFee;
 
     public Fiction () {
 
         super();
         genreId = "";
-        additionalFee = "";
     }
 
-    public Fiction (String title, String genreId, String additionalFee, Customer cust) {
+    public Fiction (String title, String genreId, Customer cust) {
 
         super(title, cust);
         this.genreId = genreId;
-        this.additionalFee = additionalFee;
+
     }
 
     public void setGenreId (String genreId) { this.genreId = genreId; }
-    public void setadditionalFee (String additionalFee) {this.additionalFee = additionalFee;}
     public String getGenreId () { return genreId; }
-    public String getadditionalFee () {return additionalFee;}
 
     public double calcAdditionalFee () {
 
         double addFee = 0.0;
-            
-        if (additionalFee.equalsIgnoreCase("Y"))
-            addFee = (super.getBookDayOfRenting() - 5) * 2;
-        else if (additionalFee.equalsIgnoreCase("N"))
-            addFee = 0;
 
+        if (super.getBookDayOfRenting() > 5) {
+
+            addFee = (super.getBookDayOfRenting() - 5) * 2;
+        }
+        
         return addFee;
     }
 
@@ -42,6 +38,11 @@ public class Fiction extends Book{
 
         return totalFiction;
     }
+
+     public double calcFinalTotal() {
+        return calcTotalFiction();
+    }
+
     public String SubGenre () {
 
         String subGenre = "";
@@ -58,7 +59,9 @@ public class Fiction extends Book{
 
     public String toString () {
 
-        return super.toString() + "\n Additional fee : RM" + calcAdditionalFee() + "\n Grand Total : RM" +calcTotalFiction()+ "\n Genre : " + SubGenre();
+        return super.toString() + 
+        "Additional fee : RM" + calcAdditionalFee() + 
+        "\nGenre : " + SubGenre();
     }
 
 

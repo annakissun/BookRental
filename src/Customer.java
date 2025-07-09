@@ -34,7 +34,7 @@ public class Customer {
 
     public String toString () {
 
-        return "\n Name : " +name+ "\n Contact No : " +contactNo+ "\n Id : " +identification+ 
-        "\n Days of renting : " +dayOfRenting + "\n";
+        return "\nName : " +name+ "\nContact No : " +contactNo+ "\nId : " +identification+ 
+        "\nDays of renting : " +dayOfRenting + "\n";
     }
 }

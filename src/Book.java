@@ -1,4 +1,4 @@
-public class Book {
+public abstract class Book {
     
     private String title;
     private Customer c;
@@ -12,7 +12,7 @@ public class Book {
     public Book (String title, Customer cust) {
 
         this.title = title;
-        c = cust;
+        this.c = cust;
     }
 
     public void setTitle (String title) { this.title = title; }
@@ -42,7 +42,6 @@ public class Book {
     }
 
     //get full ISBN
-
     public String getfullISBN () {
 
         String fullISBN = "";
@@ -82,7 +81,6 @@ public class Book {
     }
 
     //get price per day
-
     public double getpricePerDay () {
 
         double price = 0;
@@ -101,7 +99,6 @@ public class Book {
     }
 
     //get total
-
     public int getBookDayOfRenting () { return c.getDayOfRenting(); }
 
     public double calcTotal () {
@@ -113,13 +110,17 @@ public class Book {
         return calcTotal;
     }
 
+    public abstract double calcFinalTotal();
+
     public String toString () {
 
-        return "\n Title id entered : " +title+ 
-        "\n Title : " +getfullTitle()+ 
-        "\n Author : " +getfullAuthor()+ 
-        "\n ISBN : " +getfullISBN()+ 
-        "\n Price per day : RM" +getpricePerDay()+ "\n Total before additional fee/student discount : RM" +calcTotal()+ "\n";
+        return c.toString() +
+
+        "\nTitle : " +getfullTitle()+ 
+        "\nAuthor : " +getfullAuthor()+ 
+        "\nISBN : " +getfullISBN()+ 
+        "\nPrice per day : RM" +getpricePerDay()+ 
+        "\nTotal before additional fee/student discount : RM" +calcTotal()+ "\n";
     }
 
 }

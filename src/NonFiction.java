@@ -1,5 +1,5 @@
 public class NonFiction extends Book{
-//i am testing this thing out
+
     private String subject;
     private String studentDiscount;
 
@@ -43,6 +43,10 @@ public class NonFiction extends Book{
         return totalNonFiction;
     }
 
+     public double calcFinalTotal() {
+        return calcTotalNonFiction();
+    }
+
     public String FullSubject () {
 
         String fullSubject = "";
@@ -57,6 +61,8 @@ public class NonFiction extends Book{
 
     public String toString () {
 
-        return super.toString() + "\n Total fiction : RM" + calcDiscountFee() + "\n Grand Total : RM" +calcTotalNonFiction() + "\n Subject : " + FullSubject();
+        return super.toString() + 
+        "Total fiction : RM" + calcDiscountFee() + 
+        "\nSubject : " + FullSubject();
     }
 }
